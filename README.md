@@ -56,13 +56,60 @@ alternatively
 ```sh
 $ chmod 744 ./bin/install_terraform_cli
 ``` 
-https://medium.com/@humbleCoder007/chmod-777-72f83198a264#:~:text=The%20%60chmod%20777%60%20command%20is%20used%20in%20Unix%2Dbased,the%20permissions%20to%20be%20set.
+
+[Read more on linux permissions here](https://medium.com/@humbleCoder007/chmod-777-72f83198a264#:~:text=The%20%60chmod%20777%60%20command%20is%20used%20in%20Unix%2Dbased,the%20permissions%20to%20be%20set.)
 
 ### Github lifecycle command (Before Init command )
 
 We need to be careful when using the init comman. It will not run if we restart the working environment, so we use the before. Refer to link below.
 
-https://www.gitpod.io/docs/configure/workspaces/tasks
+[Read more on Github lifecycle commands here](https://www.gitpod.io/docs/configure/workspaces/tasks)
 
 
+## Working With Enviromental Variables
 
+
+### Env Commands (e.g., `grep`):
+
+We list all Environment Variables (Env Vars), using the `env` command. 
+To filter specific Env Vars, such as those containing gitpod use grep with the env command."
+Example: `env | grep gitpod`
+
+### Setting and Unsetting Env Vars:
+
+We can set an Env Var using  the `export` command followed by the variable name and value. To unset, use the `unset` command."
+
+Example to set: `export MY_VAR=123`
+Example to unset: `unset MY_VAR`
+
+We can set an env var temporarily when just running a command 
+```sh
+Hello=`World` ./bin/print_message
+```
+Within a bash scrtipt we can set env without writing export.
+
+```sh
+#!/usr/bin/env-bash
+
+Hello=`World`
+
+echo $Hello
+```
+
+### Printing Environment Variables
+
+WE can print the value of an Env Var, like 'HOME,' using the echo command with the variable name prefixed by a dollar sign."
+Example: echo $HOME
+
+### Scoping of Environment Variables:
+
+Env Vars are limited to the scope of the current terminal session and do not persist between different sessions.
+
+### Persistency of Environment Variables in Gitpod:
+
+In Gitpod, set persistent Env Vars in the workspace configuration,
+ ```
+ gp env Hello=`World`
+ ``` 
+ They will remain across workspace for all bash terminal restarts.
+ You can also set env vars in the .gitpod.yml file but this can only be non sensitive info
