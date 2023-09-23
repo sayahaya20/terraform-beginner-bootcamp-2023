@@ -113,3 +113,28 @@ In Gitpod, set persistent Env Vars in the workspace configuration,
  ``` 
  They will remain across workspace for all bash terminal restarts.
  You can also set env vars in the .gitpod.yml file but this can only be non sensitive info
+
+ ## AWS CLI Installation and Refactoring
+
+ AWS CLI is installed for the project via the bash script [./bin/install_aws_cli](./bin/install_aws_cli)
+ Confirm for the latest version of AWS CLI.
+[Install latest version of AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+[AWS CLI Env Vars](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html)
+
+To check if credentials have been configured correctly use the `aws sts get-caller-identity`. 
+This command retrieves information about the AWS identity of the caller, including the AWS account ID, IAM user or role name, and the AWS region.
+It provides a quick way to verify the identity and permissions of the AWS entity making the request.
+
+```sh
+aws sts get-caller-identity 
+```
+If successfull it will show a prompt similar to this 
+
+```json
+{
+    "UserId": "AIDEXAMPLE:example-user",
+    "Account": "123456789012",
+    "Arn": "arn:aws:iam::123456789012:user/example-user"
+}
+```
+We'll neeed to generate AWS CLI credentials from IAM user.
