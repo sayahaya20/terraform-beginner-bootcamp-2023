@@ -132,9 +132,9 @@ If successfull it will show a prompt similar to this
 
 ```json
 {
-    "UserId": "AIDEXAMPLE:example-user",
-    "Account": "123456789012",
-    "Arn": "arn:aws:iam::123456789012:user/example-user"
+    "UserId": "AIDAXQCIWEFELLIDJM7CG",
+    "Account": "515548520776",
+    "Arn": "arn:aws:iam::515548520776:user/suleiman"
 }
 ```
 We'll neeed to generate AWS CLI credentials from IAM user.
