@@ -180,3 +180,28 @@ This file **should not be committed** to your version control system (VSC).
 #### Rules for Creating S3 bucket
 The rules for creating bucket include lower case = true, upper case = false etc. This had to be set in the resource block `resource "random_string" "bucket_name" ` .
 [S3 bucket Naming Rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html)
+
+## Issues with Terraform Cloud Login and Gitpod 
+When attempting to run terraform login, it will lunch in a wiswig view to generate a token. However it may not work as expected in Gitpod VSCODE in the browser.
+
+The workaround is to manually generate a token in terraform cloud.
+
+(https://app.terraform.io/app/settings/tokens)
+
+Then create and open the file manually here
+```
+touch /home/gitpod/.terraform.d/credentials.t
+frc.json
+open /home/gitpod/.terraform.d/credentials.t
+frc.json
+```
+Provide the following code (replacing your file token)
+```json
+{
+  "credentials": {
+    "app.terraform.io": {
+      "token": "your_api_token_here"
+    }
+  }
+}
+```
