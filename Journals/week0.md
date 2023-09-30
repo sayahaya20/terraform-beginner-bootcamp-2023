@@ -31,7 +31,7 @@
 # Terraform Beginner Bootcamp 2023
 
 <!-- TOC --><a name="semantic-versioning"></a>
-# Semantic Versioning
+## Semantic Versioning
 This project is going to make use of semantic versioning for its tagging.
 [semver.org](https://semver.org/)
 
@@ -96,7 +96,7 @@ $ chmod 744 ./bin/install_terraform_cli
 [Read more on linux permissions here](https://medium.com/@humbleCoder007/chmod-777-72f83198a264#:~:text=The%20%60chmod%20777%60%20command%20is%20used%20in%20Unix%2Dbased,the%20permissions%20to%20be%20set.)
 
 <!-- TOC --><a name="gipod-lifecycle-commands"></a>
-### Gipod lifecycle commands
+## Gipod lifecycle commands
 
 We need to be careful when using the init comman. It will not run if we restart the working environment, so we use the before. Refer to link below.
 
