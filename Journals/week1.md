@@ -1,7 +1,19 @@
-# Terraform Beginner Bootcamp 2023 - Week 1
 
+# Terraform Beginner Bootcamp - Week 1
 
-
+## Root Module Structure
+The root module structure is as follows
+```
+PROJECT_ROOT
+│
+├── main.tf                 # everything else.
+├── variables.tf            # stores the structure of input variables
+├── terraform.tfvars        # the data of variables we want to load into our terraform project
+├── providers.tf            # defined required providers and their configuration
+├── outputs.tf              # stores our outputs
+└── README.md               # required for root modules
+```
+[Standard Module Structure](https://developer.hashicorp.com/terraform/language/modules/develop/structure)
 
 ## Terraform and Input Variables
 
@@ -54,3 +66,4 @@ While order generally doesn't matter, it's good practice to organize your Terraf
 If you lose your statefile, you most likley have to tear down all your cloud infrastructure manually.
 
 You can use terraform port but it won't for all cloud resources. You need check the terraform providers documentation for which resources support import.
+=======
