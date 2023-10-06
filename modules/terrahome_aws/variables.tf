@@ -19,6 +19,7 @@ variable "bucket_name" {
   
 }
 
+
 variable "index_html_filepath" {
   description = "Path to the index.html file"
   type        = string
@@ -48,4 +49,10 @@ variable "content_version" {
     condition     = var.content_version > 0 && ceil(var.content_version) == floor(var.content_version)
     error_message = "Content version must be a positive integer starting with 1."
   }
+}
+
+variable "assets_path" {
+  description = "Path to assets folder"
+  type = string
+  
 }
