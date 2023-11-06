@@ -22,15 +22,7 @@ terraform {
   
 }
 
-# module "terrahouse_aws" {
-#   source = "./modules/terrahome_aws"
-#   user_uuid = var.user_uuid
-#   bucket_name = var.bucket_name
-#   index_html_filepath = var.index_html_filepath
-#   error_html_filepath = var.error_html_filepath
-#   assets_path = var.assets_path
-#   content_version= var.content_version
-# }
+
 
 provider "terratowns" {
   endpoint = var.terratowns_endpoint
@@ -38,11 +30,14 @@ provider "terratowns" {
   token = var.terratowns_access_token
 }
 
-module "home_arcanum_hosting" {
+module "terrahouse_aws" {
   source = "./modules/terrahome_aws"
   user_uuid = var.teacherseat_user_uuid
-  public_path = var.arcanum.public_path
-  content_version = var.arcanum.content_version
+  bucket_name = var.bucket_name
+  index_html_filepath = var.index_html_filepath
+  error_html_filepath = var.error_html_filepath
+  assets_path = var.assets_path
+  content_version= var.content_version
 }
 
 resource "terratowns_home" "home" {
@@ -64,6 +59,7 @@ module "home_payday_hosting" {
   user_uuid = var.teacherseat_user_uuid
   public_path = var.payday.public_path
   content_version = var.payday.content_version
+  assets_path = var.assets_path
 }
 
 resource "terratowns_home" "home_payday" {
